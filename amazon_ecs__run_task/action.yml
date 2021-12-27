@@ -3,6 +3,7 @@ name: (ECS) Run Task
 description: For Amazon ECS, this action will run the task specified, and wait for it to complete.
 
 inputs:
+  # aws cli
   # see https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
   aws_access_key_id:
     description: AWS_ACCESS_KEY_ID environment variable value.
@@ -13,12 +14,16 @@ inputs:
   aws_default_region:
     description: AWS_DEFAULT_REGION environment variable value.
     required: true
+
+  # task
   ecs_cluster:
     description: Amazon ECS Cluster to launch task in.
     required: true
   ecs_task_definition:
     description: Amazon ECS Task Definition to base task on.
     required: true
+
+  # network configuration for the container
   vpc_subnet:
     description: Amazon VPC Subnet for the container to use.
     required: true
