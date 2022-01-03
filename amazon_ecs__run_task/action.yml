@@ -1,4 +1,3 @@
-
 name: (ECS) Run Task
 description: For Amazon ECS, this action will run the task specified, and wait for it to complete.
 
@@ -30,8 +29,8 @@ inputs:
   vpc_security_group:
     description: Amazon VPC Security Group for the container to use.
     required: true
-  vpc_auto_assign_ip:
-    description: Amazon VPC setting to auto-assign IP to container (ENABLED or DISABLED).
+  vpc_assign_public_ip:
+    description: Amazon VPC setting to assign public IP to container (ENABLED or DISABLED).
     required: true
 
 runs:
@@ -42,9 +41,10 @@ runs:
       env:
         AWS_ACCESS_KEY_ID: ${{ inputs.aws_access_key_id }}
         AWS_SECRET_ACCESS_KEY: ${{ inputs.aws_secret_access_key }}
-        AWS_DEFAULT_REGION: ${{ inputs.aws_default_region }} # note: not directly used in script, but used in AWS CLI
+        # note: not directly used in script, but used in AWS CLI
+        AWS_DEFAULT_REGION: ${{ inputs.aws_default_region }}
         ECS_CLUSTER: ${{ inputs.ecs_cluster}}
         ECS_TASK_DEFINITION: ${{ inputs.ecs_task_definition }}
         VPC_SUBNET: ${{ inputs.vpc_subnet }}
         VPC_SECURITY_GROUP: ${{ inputs.vpc_security_group }}
-        VPC_AUTO_ASSIGN_IP: ${{ inputs.vpc_auto_assign_ip }}
+        VPC_ASSIGN_PUBLIC_IP: ${{ inputs.vpc_assign_public_ip }}
