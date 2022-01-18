@@ -1,7 +1,7 @@
 
 # (ECS) Run Task
 
-This action will run your ECS Task Definition as a task on Fargate (for now, EC2 support might come later). The action will wait until the task has reached a completion state before exiting. If a completion state is not reached in 10 minutes (timeout), the action will exit with an error, printing out the last status (JSON).
+This action will run your ECS Task Definition as a task on Fargate. The action will wait until the task has reached a completion state before exiting. If a completion state is not reached in 10 minutes (timeout), the action will exit with an error, printing out the last status (JSON).
 
 ### Inputs
 
